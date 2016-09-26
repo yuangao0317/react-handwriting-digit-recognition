@@ -3,10 +3,10 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 /* Import actions here */
-import * as CounterActions from '../actions/CounterActions'; // Fake
+import * as CanvasActions from '../actions/CanvasActions'; // Fake
 
 /* Import components here */
-import Counter from '../components/Counter'; // Fake
+import Canvas from '../components/Canvas';
 import Footer from '../components/Footer';
 
 /**
@@ -17,12 +17,12 @@ import Footer from '../components/Footer';
 class App extends Component {
   render() {
     // we can use ES6's object destructuring to effectively 'unpack' our props
-    const { counter, actions } = this.props;
+    const { canvasState, canvasActions } = this.props;
     return (
-      <div className="main-app-container">
-        <div className="main-app-nav">Simple Redux Boilerplate</div>
+      <div className="">
+        <div className="">Handwriting Digit Recognition</div>
         {/* notice that we then pass those unpacked props into the Counter component */}
-        <Counter counter={counter} actions={actions} />
+        <Canvas canvasState={canvasState} canvasActions={canvasActions} />
         <Footer />
       </div>
     );
@@ -31,21 +31,21 @@ class App extends Component {
 
 /* Define propTypes here */
 App.propTypes = {
-  counter: PropTypes.number.isRequired,
-  actions: PropTypes.object.isRequired
+  canvasState: PropTypes.number.isRequired,
+  canvasActions: PropTypes.object.isRequired
 };
 
 /* Pass state to its component here */
 function mapStateToProps(state) {
   return {
-    counter: state.counter
+    canvasState: state.canvas
   };
 }
 
 /* Map actions here */
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(CounterActions, dispatch)
+    canvasActions: bindActionCreators(CanvasActions, dispatch)
   };
 }
 
