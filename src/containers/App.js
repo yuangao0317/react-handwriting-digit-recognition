@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <div className="">
         <div className="">Handwriting Digit Recognition</div>
-        {/* notice that we then pass those unpacked props into the Counter component */}
+        {/* notice that we then pass those unpacked props into the component */}
         <Canvas canvasState={canvasState} canvasActions={canvasActions} />
         <Footer />
       </div>
@@ -31,14 +31,16 @@ class App extends Component {
 
 /* Define propTypes here */
 App.propTypes = {
-  canvasState: PropTypes.number.isRequired,
+  canvasState: PropTypes.object.isRequired,
   canvasActions: PropTypes.object.isRequired
 };
 
 /* Pass state to its component here */
 function mapStateToProps(state) {
+  console.log('map state:');
+  console.log(state.canvasReducer);
   return {
-    canvasState: state.canvas
+    canvasState: state.canvasReducer
   };
 }
 

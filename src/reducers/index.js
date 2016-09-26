@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
 /* Import children reducers here */
-import childReducer1 from './childReducer1'; // Fake 
+import canvasReducer from './canvasReducer';
 
 const rootReducer = combineReducers({
-  childReducer1: childReducer1,
+  canvasReducer: canvasReducer,
 });
 
 export default rootReducer;
