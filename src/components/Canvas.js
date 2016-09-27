@@ -4,7 +4,7 @@ export default class Canvas extends Component {
   constructor(props, context) {
     super(props, context);
 
-    this.clearBeforeDraw = false;
+    // this.clearBeforeDraw = false;
     this.prevX = 0;
     this.currX = 0;
     this.prevY = 0;
@@ -12,29 +12,32 @@ export default class Canvas extends Component {
     this.paths = []; // recording paths
     this.paintFlag = false;
     this.lineWidth = 20; // this value cannot be small
+
   }
 
   componentDidMount() {
-    let that = this;
-    let canvas = this.refs.canvas;
+    this.canvas = this.refs.canvas;
+    this.ctx = this.canvas.getContext("2d");
 
-    canvas.addEventListener("mousemove", function (e) {
+    let that = this;
+
+    this.canvas.addEventListener("mousemove", function (e) {
       that.drawing('move', e);
     }, false);
-    canvas.addEventListener("mousedown", function (e) {
+    this.canvas.addEventListener("mousedown", function (e) {
       that.drawing('down', e);
     }, false);
-    canvas.addEventListener("mouseup", function (e) {
+    this.canvas.addEventListener("mouseup", function (e) {
       that.drawing('up', e);
     }, false);
-    canvas.addEventListener("mouseout", function (e) {
+    this.canvas.addEventListener("mouseout", function (e) {
       that.drawing('out', e);
     }, false);
   }
 
   drawing(res, e) {
-    let canvas = this.refs.canvas;
-    let ctx = canvas.getContext("2d");
+    let canvas = this.canvas;
+    let ctx = this.ctx;
 
     if (res == 'down') {
       // if (this.clearBeforeDraw == true) {
@@ -48,6 +51,8 @@ export default class Canvas extends Component {
       if (e.pageX != undefined && e.pageY != undefined) {
         this.currX = e.pageX-canvas.offsetParent.offsetLeft-canvas.offsetLeft;
         this.currY = e.pageY-canvas.offsetParent.offsetTop-canvas.offsetTop;
+        console.log(this.currX)
+          console.log(this.currY)
       } else {
         this.currX = e.clientX + document.body.scrollLeft
           + document.documentElement.scrollLeft
@@ -113,18 +118,19 @@ export default class Canvas extends Component {
   componentWillUnmount() {}
 
   handleRecognize() {
+    let canvasCopy = document.createElement("canvas");
     let canvasData = {
-      canvas: this.refs.canvas,
+      canvas: this.canvas,
+      canvasCopy: canvasCopy,
       paths: this.paths
     }
     this.props.canvasActions.recognizeAsync(canvasData);
   }
 
   handleClear() {
-    let canvas = this.refs.canvas;
-    let ctx = canvas.getContext("2d");
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    this.paths = [];
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.paths = []; 
+
     this.props.canvasActions.clear();
   }
 
@@ -140,17 +146,20 @@ export default class Canvas extends Component {
 
     return (
       <div className="container">
-        <div className="row">
-        <div className="col-md-6">
-          <canvas ref="canvas" width={200} height={200} style={canvasStyle}></canvas>
-          <br />
-          <div className="container">
-            <button onClick={() => {this.handleRecognize();}}>Recognize</button>
-            <button onClick={() => {this.handleClear();}}>Clear</button>
+        <div className="container">
+        <div className="col-md-3"></div>
+        <div className="col-md-4">
+          <div className="row">
+            <canvas id="canvas" ref="canvas" width={200} height={200} style={canvasStyle}></canvas>
+
+            <div>
+              <button className="btn btn-primary" onClick={() => {this.handleRecognize();}}>Recognize</button>
+              <button className="btn btn-primary" onClick={() => {this.handleClear();}}>Clear</button>
+            </div>
           </div>
         </div>
-        <div className="col-md-6">
-          <h1 className="">{canvasState.recognizeResult}</h1>
+        <div className="col-md-5">
+          <div className="container"><span id="result">{canvasState.recognizeResult}</span></div>
         </div>
         </div>
       </div>

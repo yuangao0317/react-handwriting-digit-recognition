@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 
 /* Import stylesheet here */
-import './styles/main.css';
+import './styles/main.scss';
 
 
 /* Require configureStore and Root here */

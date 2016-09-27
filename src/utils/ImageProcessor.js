@@ -5,6 +5,7 @@ export default class ImageProcessor {
 	constructor(canvasData) {
 		this.canvas = canvasData.canvas;
 		this.paths = canvasData.paths;
+		this.canvasCopy = canvasData.canvasCopy;
 		this.theta1 = theta1;
 		this.theta2 = theta2;
 	}
@@ -18,7 +19,7 @@ export default class ImageProcessor {
 		const bounds = this.getBoundingRectangle(grayImage, 0.01);
 		const center = this.getCenterOfImage(grayImage);
 
-		let canvasCopy = this.canvas;
+		let canvasCopy = this.canvasCopy;
 		canvasCopy.width = imgData.width;
 	  canvasCopy.height = imgData.height;
 		let copyCtx = canvasCopy.getContext("2d");
