@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 /* Import actions here */
-import * as CanvasActions from '../actions/CanvasActions'; // Fake
+import * as CanvasActions from '../actions/CanvasActions';
 
 /* Import components here */
 import Canvas from '../components/Canvas';

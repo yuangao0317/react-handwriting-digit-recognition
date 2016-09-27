@@ -4,7 +4,6 @@ export default class Canvas extends Component {
   constructor(props, context) {
     super(props, context);
 
-    // this.clearBeforeDraw = false;
     this.prevX = 0;
     this.currX = 0;
     this.prevY = 0;
@@ -40,14 +39,6 @@ export default class Canvas extends Component {
     let ctx = this.ctx;
 
     if (res == 'down') {
-      // if (this.clearBeforeDraw == true) {
-      //   ctx.clearRect(0,0,canvas.width,canvas.height);
-      //   document.getElementById('nnInput').innerHTML='';
-      //   document.getElementById('nnOut').innerHTML='';
-      //   this.paths = [];
-      //   this.clearBeforeDraw = false;
-      // }
-
       if (e.pageX != undefined && e.pageY != undefined) {
         this.currX = e.pageX-canvas.offsetParent.offsetLeft-canvas.offsetLeft;
         this.currY = e.pageY-canvas.offsetParent.offsetTop-canvas.offsetTop;
@@ -74,7 +65,6 @@ export default class Canvas extends Component {
     }
     if (res == 'up' || res == "out") {
       this.paintFlag = false;
-      //console.log(this.paths);
     }
 
     if (res == 'move') {

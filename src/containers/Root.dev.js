@@ -6,7 +6,6 @@ import App from './App';
 
 
 
-
 module.exports = class Root extends Component {
   render() {
     const { store } = this.props;
@@ -19,7 +18,7 @@ module.exports = class Root extends Component {
       <Provider store={store}>
         <div>
           <App />
-          {/* Add other components here */}
+          {/* Add Debugging tools or dev components here */}
           
         </div>
       </Provider>
