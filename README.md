@@ -1,5 +1,8 @@
 # react-handwriting-recognition
-
+A ReactJS and Redux app using a Neural Network with Backpropagation Algorithm.
++ Trained Neural Network using Octave
++ Manipulated image pixels and created a Neural Network predicting function using JavaScript
++ Techniques: ReactJS, JavaScript, Neural Network, Backpropagation Algorithm, Regularization for optimization
 
 
 ## TEST
