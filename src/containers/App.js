@@ -19,8 +19,8 @@ class App extends Component {
     // we can use ES6's object destructuring to effectively 'unpack' our props
     const { canvasState, canvasActions } = this.props;
     return (
-      <div className="">
-        <div className="">Handwriting Digit Recognition</div>
+      <div className="container">
+        <div className="row"><span id="title">Handwriting Digit Recognition</span></div>
         {/* notice that we then pass those unpacked props into the component */}
         <Canvas canvasState={canvasState} canvasActions={canvasActions} />
         <Footer />

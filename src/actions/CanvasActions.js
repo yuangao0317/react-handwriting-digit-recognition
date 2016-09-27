@@ -1,5 +1,7 @@
 import { RECOGNIZE, CLEAR } from '../constants/ActionTypes';
 
+import ImageProcessor from '../utils/ImageProcessor';
+
 /* Actions */
 export function recognize(recognizeResult) {
   return {
@@ -10,7 +12,8 @@ export function recognize(recognizeResult) {
 
 export function clear() {
   return {
-    type: CLEAR
+    type: CLEAR,
+    recognizeResult: null
   };
 }
 
@@ -18,11 +21,15 @@ export function clear() {
 /* Action creators that return functions to perform conditional dispatches.
   Here we need to pass changed value to actions
  */
-export function recognizeAsync(canvas) {
+export function recognizeAsync(canvasData) {
+
   return dispatch => {
     setTimeout(() => {
+      
+      let imageProcessor = new ImageProcessor(canvasData);
+      let prediction = imageProcessor.analyseImage();
 
-      // dispatch(recognize(recognizeResult));
+      dispatch(recognize(prediction));
     }, 1000);
   };
 }

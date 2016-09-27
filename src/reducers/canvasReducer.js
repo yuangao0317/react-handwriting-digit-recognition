@@ -21,7 +21,7 @@ export default function canvasReducer(state = initialState, action) {
       });
   case CLEAR:
     return Object.assign({}, state, {
-        //attr2: action.attr2,
+        recognizeResult: action.recognizeResult,
       });
   default:
     return state;
