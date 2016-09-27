@@ -4,8 +4,11 @@
 
 ## TEST
 git clone https://github.com/YuanGao0317/react-handwriting-digit-recognition.git
+
 npm install
+
 npm start
+
 Go to: localhost:3000
 
 
