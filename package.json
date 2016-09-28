@@ -16,6 +16,9 @@
     "url": "https://github.com/YuanGao0317/react-handwriting-digit-recognition"
   },
   "license": "MIT",
+  "engines": {
+    "node": "6.6.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "babel-core": "^6.3.15",
