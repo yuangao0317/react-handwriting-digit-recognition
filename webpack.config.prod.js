@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+process.env.NODE_ENV = 'production';
 
 module.exports = {
   devtool: 'source-map',
@@ -39,7 +40,8 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: ['babel'],
+        exclude: /node_modules/,
+        loader: "babel-loader",
         include: path.join(__dirname, 'src'),
         query:{ presets:['es2015','react'] }
       },
