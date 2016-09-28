@@ -22,7 +22,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(3000, 'localhost', (err) => {
+const PORT = (process.env.PORT || 3000);
+app.listen(PORT, 'localhost', (err) => {
   if (err) {
     console.log(err);
     return;
