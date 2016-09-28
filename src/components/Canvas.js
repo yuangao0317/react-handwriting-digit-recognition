@@ -42,8 +42,6 @@ export default class Canvas extends Component {
       if (e.pageX != undefined && e.pageY != undefined) {
         this.currX = e.pageX-canvas.offsetParent.offsetLeft-canvas.offsetLeft;
         this.currY = e.pageY-canvas.offsetParent.offsetTop-canvas.offsetTop;
-        console.log(this.currX)
-          console.log(this.currY)
       } else {
         this.currX = e.clientX + document.body.scrollLeft
           + document.documentElement.scrollLeft

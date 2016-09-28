@@ -37,8 +37,6 @@ App.propTypes = {
 
 /* Pass state to its component here */
 function mapStateToProps(state) {
-  console.log('map state:');
-  console.log(state.canvasReducer);
   return {
     canvasState: state.canvasReducer
   };
