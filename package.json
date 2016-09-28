@@ -9,7 +9,7 @@
     "dev": "NODE_ENV=development npm start",
     "start": "node devServer.js",
     "lint": "eslint src",
-    "postinstall": "npm run clean && npm run build:webpack"
+    "postinstall": "npm run build:webpack"
   },
   "repository": {
     "type": "git",
