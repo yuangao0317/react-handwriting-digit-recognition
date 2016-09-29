@@ -10,7 +10,7 @@ export default class Canvas extends Component {
     this.currY = 0;
     this.paths = []; // recording paths
     this.paintFlag = false;
-    this.lineWidth = 20; // this value cannot be small
+    this.lineWidth = 10; // this value cannot be small
 
   }
 
