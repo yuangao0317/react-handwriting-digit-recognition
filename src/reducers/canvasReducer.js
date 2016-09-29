@@ -13,7 +13,6 @@ const initialState = {
 
 export default function canvasReducer(state = initialState, action) {
 	/* here we can get the changed state from the action's return object */
-
   switch (action.type) {
   case RECOGNIZE:
     return Object.assign({}, state, {
