@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react';
 export default class Canvas extends Component {
   constructor(props, context) {
     super(props, context);
-    console.log("component constructor");
+
     this.prevX = 0;
     this.currX = 0;
     this.prevY = 0;
@@ -15,7 +15,7 @@ export default class Canvas extends Component {
   }
 
   componentDidMount() {
-    console.log("component did mount");
+
     this.canvas = this.refs.canvas;
     this.ctx = this.canvas.getContext("2d");
 
@@ -104,13 +104,13 @@ export default class Canvas extends Component {
   }
 
 
-  componentWillMount(){console.log("component will mount");}
-  componentDidUpdate(prevProps) {console.log("component did update");}
-  componentWillUnmount() {console.log("component will unmount");}
-  componentWillReceiveProps(nextProps){console.log("component will receive props");}
-  shouldComponentUpdate(nextProps, nextState){console.log("component should update");}
-  componentWillUpdate(){console.log("component will update");}
-  componentDidUpdate(prevProps, prevState){console.log("component did update");}
+  // componentWillMount(){console.log("component will mount");}
+  // componentDidUpdate(prevProps) {console.log("component did update");}
+  // componentWillUnmount() {console.log("component will unmount");}
+  // componentWillReceiveProps(nextProps){console.log("component will receive props");}
+  // shouldComponentUpdate(nextProps, nextState){console.log("component should update");}
+  // componentWillUpdate(){console.log("component will update");}
+  // componentDidUpdate(prevProps, prevState){console.log("component did update");}
 
 
   handleRecognize() {
@@ -131,7 +131,7 @@ export default class Canvas extends Component {
   }
 
   render() {
-    console.log("component render");
+    
     /* Extract props here */
     const { canvasState } = this.props;
 
