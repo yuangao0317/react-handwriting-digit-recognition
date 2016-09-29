@@ -16,6 +16,7 @@ import Footer from '../components/Footer';
  */
 class App extends Component {
   render() {
+    console.log("app container render");
     // we can use ES6's object destructuring to effectively 'unpack' our props
     const { canvasState, canvasActions } = this.props;
     return (
@@ -37,6 +38,8 @@ App.propTypes = {
 
 /* Pass state to its component here */
 function mapStateToProps(state) {
+  console.log("app state in app container map state:");
+  console.log(state);
   return {
     canvasState: state.canvasReducer
   };
@@ -44,6 +47,7 @@ function mapStateToProps(state) {
 
 /* Map actions here */
 function mapDispatchToProps(dispatch) {
+  console.log("map dispatch");
   return {
     canvasActions: bindActionCreators(CanvasActions, dispatch)
   };
