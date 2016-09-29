@@ -25,7 +25,6 @@ export function recognizeAsync(canvasData) {
 
   return dispatch => {
     setTimeout(() => {
-      
       let imageProcessor = new ImageProcessor(canvasData);
       let prediction = imageProcessor.analyseImage();
 

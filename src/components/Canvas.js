@@ -15,6 +15,7 @@ export default class Canvas extends Component {
   }
 
   componentDidMount() {
+
     this.canvas = this.refs.canvas;
     this.ctx = this.canvas.getContext("2d");
 
@@ -42,8 +43,6 @@ export default class Canvas extends Component {
       if (e.pageX != undefined && e.pageY != undefined) {
         this.currX = e.pageX-canvas.offsetParent.offsetLeft-canvas.offsetLeft;
         this.currY = e.pageY-canvas.offsetParent.offsetTop-canvas.offsetTop;
-        console.log(this.currX)
-          console.log(this.currY)
       } else {
         this.currX = e.clientX + document.body.scrollLeft
           + document.documentElement.scrollLeft
@@ -104,8 +103,15 @@ export default class Canvas extends Component {
     ctx.closePath();
   }
 
-  componentDidUpdate(prevProps) {}
-  componentWillUnmount() {}
+
+  // componentWillMount(){console.log("component will mount");}
+  // componentDidUpdate(prevProps) {console.log("component did update");}
+  // componentWillUnmount() {console.log("component will unmount");}
+  // componentWillReceiveProps(nextProps){console.log("component will receive props");}
+  // shouldComponentUpdate(nextProps, nextState){console.log("component should update");}
+  // componentWillUpdate(){console.log("component will update");}
+  // componentDidUpdate(prevProps, prevState){console.log("component did update");}
+
 
   handleRecognize() {
     let canvasCopy = document.createElement("canvas");
@@ -125,6 +131,7 @@ export default class Canvas extends Component {
   }
 
   render() {
+    
     /* Extract props here */
     const { canvasState } = this.props;
 

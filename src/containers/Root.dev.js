@@ -8,6 +8,7 @@ import App from './App';
 
 module.exports = class Root extends Component {
   render() {
+    console.log("root container render");
     const { store } = this.props;
     return (
       /**
