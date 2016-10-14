@@ -142,22 +142,22 @@ export default class Canvas extends Component {
     };
 
     return (
-      <div className="container">
+      <div className="row">
         <div className="container">
-        <div className="col-md-3"></div>
-        <div className="col-md-4">
-          <div className="row">
-            <canvas id="canvas" ref="canvas" width={200} height={200} style={canvasStyle}></canvas>
+          <div className="col-md-3"></div>
+          <div className="col-md-4">
+            <div className="row">
+              <canvas id="canvas" ref="canvas" width={200} height={200} style={canvasStyle}></canvas>
 
-            <div>
-              <button className="btn btn-primary" onClick={() => {this.handleRecognize();}}>Recognize</button>
-              <button className="btn btn-primary" onClick={() => {this.handleClear();}}>Clear</button>
+              <div>
+                <button className="btn btn-primary" onClick={() => {this.handleRecognize();}}>Recognize</button>
+                <button className="btn btn-primary" onClick={() => {this.handleClear();}}>Clear</button>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="col-md-5">
-          <div className="container"><span id="result">{canvasState.recognizeResult}</span></div>
-        </div>
+          <div className="col-md-5">
+            <div className="container"><span id="result">{canvasState.recognizeResult || "?"}</span></div>
+          </div>
         </div>
       </div>
     );

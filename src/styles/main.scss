@@ -1,3 +1,7 @@
+body {
+	background-color: #F9FBE7;
+}
+
 #title {
 	margin-left: auto;
 	margin-right: auto;
@@ -20,7 +24,45 @@ button {
 
 .footer {
   position: absolute;
-  bottom: 0;
+  /*bottom: 0;*/
   width: 100%;
   height: 30px;
+}
+
+#content {
+	border-width:1px;
+	border-style:solid;
+	background-color: #ECEFF1;
+}
+
+.dividewhite1 {
+  height: 10px; }
+.dividewhite4 {
+  height: 40px; }
+
+.center {
+    margin: auto;
+    padding: 10px;
+}
+
+#outer{
+    width:100%;
+
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+
+    /* Safari and Chrome */
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+
+    /* W3C */
+    display:box;
+    box-pack:center;
+    box-align:center;
+}
+#inner{
+    width:90%;
 }

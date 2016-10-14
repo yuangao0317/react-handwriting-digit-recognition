@@ -45,6 +45,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: 'style!css!sass'
+      },
+      { 
+        test: /\.png$/, 
+        loader: 'file' 
       }
     ]
   }

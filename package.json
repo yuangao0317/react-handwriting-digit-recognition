@@ -33,6 +33,7 @@
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^6.2.0",
     "eventsource-polyfill": "^0.9.6",
+    "file-loader": "^0.9.0",
     "node-sass": "^3.4.2",
     "redux-devtools": "^3.0.1",
     "redux-devtools-dock-monitor": "^1.0.1",

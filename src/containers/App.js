@@ -7,6 +7,7 @@ import * as CanvasActions from '../actions/CanvasActions';
 
 /* Import components here */
 import Canvas from '../components/Canvas';
+import Details from '../components/Details';
 import Footer from '../components/Footer';
 
 /**
@@ -20,10 +21,14 @@ class App extends Component {
     // we can use ES6's object destructuring to effectively 'unpack' our props
     const { canvasState, canvasActions } = this.props;
     return (
-      <div>
+      <div className="container">
         <div id="title">Handwriting Digit Recognition</div><br/><br/>
         {/* notice that we then pass those unpacked props into the component */}
         <Canvas canvasState={canvasState} canvasActions={canvasActions} />
+        <div className="dividewhite4"></div>
+        <div id="content">
+          <Details />
+        </div>
         <Footer />
       </div>
     );
