@@ -13,6 +13,15 @@ export default class Details extends Component {
       		<div className="dividewhite4"></div>
       		<div>
       			<ul>
+              <li>
+                <h4>Description</h4>
+                <p>This is a ReactJS and Redux application. 
+                It can recognize the number you write in the litte box. 
+                I developed a Neural Network training system with Backpropagation 
+                Algorithm in Octave to train my dataset. Manipulating image 
+                pixels is also the difficult part of this project.</p>
+                <p>You can check the source code out at my <a href="https://github.com/YuanGao0317/react-handwriting-digit-recognition">GitHub</a>.</p>
+              </li>
       				<li>
       					<h4>Data Set</h4>
       					<p>I used the <a href="http://yann.lecun.com/exdb/mnist/">MNIST database of handwritten digits</a>. It is a good database for people who want to try learning techniques and pattern recognition methods on real-world data while spending minimal efforts on preprocessing and formatting.</p>
