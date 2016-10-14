@@ -3,14 +3,17 @@ const webpack = require('webpack')
 
 module.exports = {
   devtool: 'source-map',
+
   entry: [
     './src/index'
   ],
+
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js',
-    publicPath: '/static/'
+    publicPath: '/public/'
   },
+
   plugins: [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
@@ -30,10 +33,7 @@ module.exports = {
     loaders: [
       { test: /\.js?$/,
         loader: 'babel',
-        exclude: /node_modules/,
-        include: path.join(__dirname, 'src'),
-        query:{ presets:['es2015','react'] } 
-      },
+        include: path.join(__dirname, 'src') },
       { test: /\.scss?$/,
         loader: 'style!css!sass',
         include: path.join(__dirname, 'src', 'styles') },
