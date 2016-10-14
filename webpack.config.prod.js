@@ -1,6 +1,5 @@
-const path = require('path');
-const webpack = require('webpack');
-process.env.NODE_ENV = 'production';
+const path = require('path')
+const webpack = require('webpack')
 
 module.exports = {
   devtool: 'source-map',
@@ -13,42 +12,35 @@ module.exports = {
     publicPath: '/static/'
   },
   plugins: [
-    /**
-     * This plugin assigns the module and chunk ids by occurence count. What this
-     * means is that frequently used IDs will get lower/shorter IDs - so they become
-     * more predictable.
-     */
-    new webpack.optimize.OccurenceOrderPlugin(),
-    /**
-     * See description in 'webpack.config.dev' for more info.
-     */
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    /**
-     * Some of you might recognize this! It minimizes all your JS output of chunks.
-     * Loaders are switched into a minmizing mode. Obviously, you'd only want to run
-     * your production code through this!
-     */
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
-      compressor: {
+      minimize: true,
+      compress: {
         warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
       }
     })
   ],
+
   module: {
     loaders: [
-      {
-        test: /\.js$/,
+      { test: /\.js?$/,
+        loader: 'babel',
         exclude: /node_modules/,
-        loader: "babel-loader",
         include: path.join(__dirname, 'src'),
-        query:{ presets:['es2015','react'] }
+        query:{ presets:['es2015','react'] } 
       },
-      {
-        test: /\.scss$/,
-        loader: 'style!css!sass'
-      }
+      { test: /\.scss?$/,
+        loader: 'style!css!sass',
+        include: path.join(__dirname, 'src', 'styles') },
+      { test: /\.png$/,
+        loader: 'file' },
+      { test: /\.(ttf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
+        loader: 'file'}
     ]
   }
-};
+}
