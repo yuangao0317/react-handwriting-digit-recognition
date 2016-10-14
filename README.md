@@ -4,6 +4,8 @@ A ReactJS and Redux app using a Neural Network with Backpropagation Algorithm.
 + Manipulated image pixels and created a Neural Network predicting function using JavaScript
 + Techniques: ReactJS, JavaScript, Neural Network, Backpropagation Algorithm, Regularization for optimization
 
+## Training System
+https://github.com/YuanGao0317/neural-network-training-system
 
 ## TEST
 git clone https://github.com/YuanGao0317/react-handwriting-digit-recognition.git
