@@ -1,5 +1,6 @@
 # react-handwriting-recognition
 Heroku: https://handwriting-digit-recognition.herokuapp.com/
+
 A ReactJS and Redux app using a Neural Network with Backpropagation Algorithm.
 + Trained Neural Network using Octave
 + Manipulated image pixels and created a Neural Network predicting function using JavaScript
